@@ -3,63 +3,48 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MyApp());
+  //test(AnimalType.cat);
 }
 
-void test(){
-  /*
-  var names = ['Da','Ni','El'];
-  print(names.length);
-  names.add('value');
-  print(names.length);
+class Person{
+  void run(){ print('Running');}
 
-  const namesSet = {'da','ni','el'}; //Los sets no se pueden repetir
-
-  var person = {
-    'age':20,
-    'name':'Daniel'
-    };
-
-  print(person);
-  person['lastname']='Baz';
-  print(person);
-
-// NULL
-String? name = null;
-print(name);
-name = 'Foo';
-print(name);
-
-List<String>? names = ['daniel','María'];
-names = null;
-
-List<String?>? namess = ['daniel','María',null]; //Optional List of optional strings.
-
-const String? firstName = null;
-const String? middleName = null;
-const String? lastName = 'Baz';
-
-const firstNonNullValue = firstName ?? middleName ?? lastName;
-print(firstNonNullValue);
-
-
-String? firstName = null;
-String lastName = 'Daniel';
-firstName ??= lastName; //Si es null el valor cogerá el valor que le proporcionamos después del "??="
-print(firstName);
-*/
-
-List<String>? names = null;
-final numberOfNames = names?.length ?? 0;
+  void breathe(){ print("Breathing");}
 }
+
+const firstaName = '';
+const lastName = '';
+
+
+
+enum AnimalType{ cat, dog, bunny }
+
+void test(AnimalType animalType){
+  switch(animalType){
+    case AnimalType.bunny:
+      print("bunny");
+      break;
+    case AnimalType.cat:
+      print("Cat");
+      break;
+    case AnimalType.dog:
+      print("Dog");
+      break;
+  }
+  print("FUNCTION IS FINISHED");
+}
+
 
 class MyApp extends StatelessWidget {
+  
   const MyApp({super.key});
-
   // This widget is the root of your application.
+  
   @override
   Widget build(BuildContext context) {
-    test();
+    
     return MaterialApp(
+      
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
