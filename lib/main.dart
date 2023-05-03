@@ -1,6 +1,23 @@
 import 'package:flutter/material.dart';
 
+//Function
+String getFullName(String firstName, String lastName){
+  return '$firstName $lastName';
+}
+
+String getFullNameSimply(String firstName, String lastName) => '$firstName $lastName';
+
+void printMyName(){
+
+}
+
+
+//Constantes
+const age = 27;
+const twiceTheAge = age * 2;
+
 void main() {
+  var name = 'Daniel';
   runApp(const MyApp());
 }
 
@@ -10,6 +27,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    print(getFullName('Daniel', 'Martínez'));
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
