@@ -6,13 +6,12 @@ void main() {
 }
 
 void test(){
-  const names = ['Da','Ni','El'];
+  var names = ['Da','Ni','El'];
   print(names.length);
-  names.add("value");
+  names.add('value');
   print(names.length);
 
   const namesSet = {'da','ni','el'}; //Los sets no se pueden repetir
-  const things = {'hola',1};
 
   var person = {
     'age':20,
@@ -21,7 +20,7 @@ void test(){
 
   print(person);
   person['lastname']='Baz';
-  print(person );
+  print(person);
 }
 
 class MyApp extends StatelessWidget {
