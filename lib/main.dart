@@ -1,24 +1,27 @@
 import 'package:flutter/material.dart';
 
-//Function
-String getFullName(String firstName, String lastName){
-  return '$firstName $lastName';
-}
-
-String getFullNameSimply(String firstName, String lastName) => '$firstName $lastName';
-
-void printMyName(){
-
-}
-
-
-//Constantes
-const age = 27;
-const twiceTheAge = age * 2;
 
 void main() {
-  var name = 'Daniel';
   runApp(const MyApp());
+}
+
+void test(){
+  const names = ['Da','Ni','El'];
+  print(names.length);
+  names.add("value");
+  print(names.length);
+
+  const namesSet = {'da','ni','el'}; //Los sets no se pueden repetir
+  const things = {'hola',1};
+
+  var person = {
+    'age':20,
+    'name':'Daniel'
+    };
+
+  print(person);
+  person['lastname']='Baz';
+  print(person );
 }
 
 class MyApp extends StatelessWidget {
@@ -27,7 +30,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    print(getFullName('Daniel', 'Martínez'));
+    test();
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
