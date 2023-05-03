@@ -6,6 +6,7 @@ void main() {
 }
 
 void test(){
+  /*
   var names = ['Da','Ni','El'];
   print(names.length);
   names.add('value');
@@ -21,6 +22,34 @@ void test(){
   print(person);
   person['lastname']='Baz';
   print(person);
+
+// NULL
+String? name = null;
+print(name);
+name = 'Foo';
+print(name);
+
+List<String>? names = ['daniel','María'];
+names = null;
+
+List<String?>? namess = ['daniel','María',null]; //Optional List of optional strings.
+
+const String? firstName = null;
+const String? middleName = null;
+const String? lastName = 'Baz';
+
+const firstNonNullValue = firstName ?? middleName ?? lastName;
+print(firstNonNullValue);
+
+
+String? firstName = null;
+String lastName = 'Daniel';
+firstName ??= lastName; //Si es null el valor cogerá el valor que le proporcionamos después del "??="
+print(firstName);
+*/
+
+List<String>? names = null;
+final numberOfNames = names?.length ?? 0;
 }
 
 class MyApp extends StatelessWidget {
