@@ -3,8 +3,41 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MyApp());
-  testFactory();
+  test();
 }
+
+class Dog{
+  final String name;
+  Dog(this.name);
+  factory Dog.pastorAleman(){
+    return Dog('Rex');
+  }
+}
+
+class Person {
+  final String firstName;
+  final String lastName;
+  Person(this.firstName, this.lastName);
+
+}
+
+extension FullName on Person {
+    String get fullName => '$firstName $lastName';
+  }
+
+//Extension
+extension Run on Dog{
+  void run(){
+    print('Dog $name is running');
+  }
+}
+
+void test(){
+  final daniel = Person('Daniel', 'Martinez');
+  print(daniel.fullName);
+}
+
+
 
 //Custom Operators
 class Horse extends Object{
@@ -20,15 +53,8 @@ class Horse extends Object{
 
 }
 
-//Factory constructors
-class Dog{
-  final String name;
-  Dog(this.name);
-  factory Dog.pastorAleman(){
-    return Dog('Rex');
-  }
 
-}
+
 
 void testFactory(){
   final rex = Dog.pastorAleman();
@@ -50,38 +76,16 @@ class LivingThing{
 class Cat extends LivingThing{}
 
 
-void test(){
-  final fluffers = Cat();
-  fluffers.move();
-  fluffers.breathe();
-}
+
 //----------------
-class Person{
-  final String name;
-  var firstName = '';
-  var lastName = '';
 
-  //Constructor
-  Person(this.name);
-
-
-  String run(){ return "Running";}
-
-  String breathe(){ return "Breathing";}
-}
 
 void testObject(){
-  final foo = Person("Daniel"); //Object
+
 
 }
 
-void test1(){
-  var person = Person("Daniel");
-  var name = person.name;
-  var running = person.run();
-  print("$name is $running");
-  person.breathe();
-}
+
 
 
 
