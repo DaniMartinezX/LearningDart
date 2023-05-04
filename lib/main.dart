@@ -3,41 +3,55 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MyApp());
-  test();
+  testGenerators();
 }
 
-class Dog{
-  final String name;
-  Dog(this.name);
-  factory Dog.pastorAleman(){
-    return Dog('Rex');
+Iterable<int> getOneTwoThree() sync* {
+  /*
+      yield es una forma de construir un Iterable 
+      de manera incremental y asíncrona, produciendo 
+      valores a medida que son solicitados por el consumidor 
+      del Iterable
+  */
+  yield 1;
+  yield 2;
+  yield 3;
+}
+
+void testGenerators() async {
+  for (final value in getOneTwoThree()){
+    print(value);
+    if(value == 2){
+      break;
+    }
   }
 }
 
-class Person {
-  final String firstName;
-  final String lastName;
-  Person(this.firstName, this.lastName);
-
+Stream<String> getName(){
+  return Stream.periodic(const Duration(seconds: 1), (value){
+    return 'Foo';
+  });
 }
 
-extension FullName on Person {
-    String get fullName => '$firstName $lastName';
+void test1() async{
+  //Esta es la sintaxis para asynchronous "pipe" of data: Stream
+  await for (final value in getName()){
+    print(value);
   }
-
-//Extension
-extension Run on Dog{
-  void run(){
-    print('Dog $name is running');
-  }
+  print('Stream finished working');
 }
 
-void test(){
-  final daniel = Person('Daniel', 'Martinez');
-  print(daniel.fullName);
+Future<int> heavyFutureThatMultipliesByTwo(int a){
+  return Future.delayed(const Duration(seconds: 3), () => a * 2);
+}
+// "async": marca que esa función vaa ser asincrona (no va retornar inmediatamente)
+// "await": keyword que espera a que acabe la función asíncrona para que devuelva el resultado.
+void test() async{
+  final result = await heavyFutureThatMultipliesByTwo(10);
+  print(result);
 }
 
-
+ 
 
 class MyApp extends StatelessWidget {
   
