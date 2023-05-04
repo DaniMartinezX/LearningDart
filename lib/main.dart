@@ -3,36 +3,91 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MyApp());
-  //test(AnimalType.cat);
+  testFactory();
 }
 
+//Custom Operators
+class Horse extends Object{
+  final String name;
+  Horse(this.name);
+
+  @override
+  bool operator == (covariant Horse other) => other.name == name; //Método overrided de Object que muestra si 2 caballos tienen el mismo nombre.
+  
+  @override
+  int get hashCode => name.hashCode;  //Estamos creando un identificador con el name para nuestra clase Horse
+  
+
+}
+
+//Factory constructors
+class Dog{
+  final String name;
+  Dog(this.name);
+  factory Dog.pastorAleman(){
+    return Dog('Rex');
+  }
+
+}
+
+void testFactory(){
+  final rex = Dog.pastorAleman();
+  print(rex.name);
+}
+
+
+//Inheritance
+class LivingThing{
+  void breathe(){
+    print('Living thing is breathing');
+  }
+
+  void move(){
+    print('I am moving');
+  }
+}
+
+class Cat extends LivingThing{}
+
+
+void test(){
+  final fluffers = Cat();
+  fluffers.move();
+  fluffers.breathe();
+}
+//----------------
 class Person{
-  void run(){ print('Running');}
+  final String name;
+  var firstName = '';
+  var lastName = '';
 
-  void breathe(){ print("Breathing");}
+  //Constructor
+  Person(this.name);
+
+
+  String run(){ return "Running";}
+
+  String breathe(){ return "Breathing";}
 }
 
-const firstaName = '';
-const lastName = '';
+void testObject(){
+  final foo = Person("Daniel"); //Object
+
+}
+
+void test1(){
+  var person = Person("Daniel");
+  var name = person.name;
+  var running = person.run();
+  print("$name is $running");
+  person.breathe();
+}
 
 
 
 enum AnimalType{ cat, dog, bunny }
 
-void test(AnimalType animalType){
-  switch(animalType){
-    case AnimalType.bunny:
-      print("bunny");
-      break;
-    case AnimalType.cat:
-      print("Cat");
-      break;
-    case AnimalType.dog:
-      print("Dog");
-      break;
-  }
-  print("FUNCTION IS FINISHED");
-}
+
 
 
 class MyApp extends StatelessWidget {
