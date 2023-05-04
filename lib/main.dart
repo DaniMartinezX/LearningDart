@@ -3,52 +3,37 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MyApp());
-  testGenerators();
+  test();
 }
 
-Iterable<int> getOneTwoThree() sync* {
-  /*
-      yield es una forma de construir un Iterable 
-      de manera incremental y asíncrona, produciendo 
-      valores a medida que son solicitados por el consumidor 
-      del Iterable
-  */
-  yield 1;
-  yield 2;
-  yield 3;
+/*
+  Generics:  los genéricos en Dart permiten crear clases 
+  y funciones que pueden trabajar con diferentes tipos de 
+  datos de manera abstracta y reutilizable, lo que permite 
+  evitar la duplicación de código y mejorar la seguridad de 
+  tipos.
+*/
+
+class PairOfStrings{
+  final String value1;
+  final String value2;
+  PairOfStrings(this.value1,this.value2);
 }
 
-void testGenerators() async {
-  for (final value in getOneTwoThree()){
-    print(value);
-    if(value == 2){
-      break;
-    }
-  }
+class PairOfIntegers{
+  final int value1;
+  final int value2;
+  PairOfIntegers(this.value1,this.value2);
 }
 
-Stream<String> getName(){
-  return Stream.periodic(const Duration(seconds: 1), (value){
-    return 'Foo';
-  });
+class Pair<A, B>{
+  final A value1;
+  final B value2;
+  Pair(this.value1, this.value2);
 }
 
-void test1() async{
-  //Esta es la sintaxis para asynchronous "pipe" of data: Stream
-  await for (final value in getName()){
-    print(value);
-  }
-  print('Stream finished working');
-}
-
-Future<int> heavyFutureThatMultipliesByTwo(int a){
-  return Future.delayed(const Duration(seconds: 3), () => a * 2);
-}
-// "async": marca que esa función vaa ser asincrona (no va retornar inmediatamente)
-// "await": keyword que espera a que acabe la función asíncrona para que devuelva el resultado.
-void test() async{
-  final result = await heavyFutureThatMultipliesByTwo(10);
-  print(result);
+void test(){
+  final names = Pair('daniel', 20);
 }
 
  
