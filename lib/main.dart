@@ -39,61 +39,6 @@ void test(){
 
 
 
-//Custom Operators
-class Horse extends Object{
-  final String name;
-  Horse(this.name);
-
-  @override
-  bool operator == (covariant Horse other) => other.name == name; //Método overrided de Object que muestra si 2 caballos tienen el mismo nombre.
-  
-  @override
-  int get hashCode => name.hashCode;  //Estamos creando un identificador con el name para nuestra clase Horse
-  
-
-}
-
-
-
-
-void testFactory(){
-  final rex = Dog.pastorAleman();
-  print(rex.name);
-}
-
-
-//Inheritance
-class LivingThing{
-  void breathe(){
-    print('Living thing is breathing');
-  }
-
-  void move(){
-    print('I am moving');
-  }
-}
-
-class Cat extends LivingThing{}
-
-
-
-//----------------
-
-
-void testObject(){
-
-
-}
-
-
-
-
-
-enum AnimalType{ cat, dog, bunny }
-
-
-
-
 class MyApp extends StatelessWidget {
   
   const MyApp({super.key});
